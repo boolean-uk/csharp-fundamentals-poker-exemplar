@@ -93,7 +93,7 @@ public class Tests
         Assert.IsTrue(winner.Item1 == "7" && winner.Item2 == "7");
 
     }
-    [TestCase("T", 0)]
+    [TestCase("Joker", 0)]
     [TestCase("2",2)]
     [TestCase("3",3)]
     [TestCase("4",4)]

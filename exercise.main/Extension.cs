@@ -12,8 +12,22 @@ namespace exercise.main
         public bool winningThree(IEnumerable<Tuple<string, string, string>> hand, out Tuple<string, string, string> result)
         {
             result = new Tuple<string, string, string>(string.Empty, string.Empty, string.Empty);
+            int maxScore = 0;
 
-            return false;
+            foreach (var triplet in hand)
+            {
+                if (triplet.Item1 == triplet.Item2 && triplet.Item2 == triplet.Item3)
+                {
+                    int score = new Core().GetValueOfCard(triplet.Item1);
+                    if (score > maxScore)
+                    {
+                        maxScore = score;
+                        result = triplet;
+                    }
+                }
+            }
+
+            return result.Item1 != string.Empty ? true : false;
         }
 
     }
